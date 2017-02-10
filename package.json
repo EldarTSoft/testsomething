@@ -1,6 +1,6 @@
 {
   "name": "customp",
-"version": "0.0.12",
+  "version": "0.2.0",
   "description": "-",
   "main": "index.js",
   "scripts": {
@@ -13,9 +13,9 @@
   "keywords": [
     "-"
   ],
-"engines": {
-  "node": ">=4.2.4"
-},
+  "engines": {
+    "node": ">=4.2.4"
+  },
   "author": "Eldar Tinjic <eldar.tinjic@softatec.com>",
   "license": "MIT",
   "bugs": {
