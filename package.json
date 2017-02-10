@@ -4,6 +4,7 @@
   "description": "-",
   "main": "index.js",
   "files": [
+    "customp.html",
     "additional.js"
   ],
   "scripts": {
