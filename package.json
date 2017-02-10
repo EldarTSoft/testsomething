@@ -3,6 +3,9 @@
   "version": "0.2.1",
   "description": "-",
   "main": "index.js",
+  "files": [
+    "additional.js"
+  ]
   "scripts": {
     "test": "-"
   },
