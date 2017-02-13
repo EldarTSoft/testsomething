@@ -1,3 +1,5 @@
+//import { Template } from 'meteor/templating';
+
 if(Meteor.isClient){
     Template.customptemplate.helpers({
         isReady: function () {
@@ -7,7 +9,8 @@ if(Meteor.isClient){
 
     Template.fileBrowser.helpers({
         dataObjectsReady: function () {
-            return Template.instance().ready.get();
+            return true;
+            //return Template.instance().ready.get();
         },
         files: function () {
             var parent = FlowRouter.getParam('dataObjectId');
@@ -75,7 +78,7 @@ if(Meteor.isClient){
             return !isFileWithTypes(fileName, _.keys(fileTypes));
         },
         isDownloading: function() {
-            return Template.instance().isDownloading.get();
+            //return Template.instance().isDownloading.get();
         },
         isText: function() {
             return (FlowRouter.getParam("dashboardCard") === "whatIWantToSay") && (this.type === 'text');
