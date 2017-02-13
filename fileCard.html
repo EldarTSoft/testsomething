@@ -1,0 +1,106 @@
+<template name="AAAfileCard">
+    <div class="card file-card">
+        <div class="card-image waves-effect">
+            {{#if progress}}
+                <div class="progress-container">
+                    <div class="status">{{progress}}%</div>
+                    <div class="progress">
+                        <div class="determinate" style="width: {{progress}}%"></div>
+                    </div>
+                </div>
+            {{else}}
+                {{#if encrypted}}
+                    {{> keyGenLoading}}
+                    <div class="card-title card-status">{{_ 'decrypting'}}</div>
+                {{else}}
+                    {{#if $eq type 'folder'}}
+                        <i class="large mdi-file-folder"></i>
+                    {{else}}
+                        {{#if $eq type 'file'}}
+                            {{#if isFileWithType fileName "image"}}
+                                {{#if url}}
+                                    {{loadImageUrl}}
+                                    {{#with imageUrl}}
+                                        <img src="{{this}}">
+                                    {{else}}
+                                        {{> keyGenLoading}}
+                                    {{/with}}
+                                {{else}}
+                                    <i class="large material-icons">image</i>
+                                {{/if}}
+                            {{/if}}
+                            {{#if isFileWithType fileName "video"}}
+                                {{#if this.thumbnail}}
+                                    <img src="{{this.thumbnail}}"/>
+                                {{else}}
+                                    <i class="large material-icons">movie</i>
+                                {{/if}}
+                            {{/if}}
+                            {{#if isFileWithType fileName "audio"}}
+                                <i class="large material-icons">keyboard_voice</i>
+                            {{/if}}
+                            {{#if isFileWithType fileName "pdf"}}
+                                <i class="large material-icons">picture_as_pdf</i>
+                            {{/if}}
+                            {{#if isFileWithType fileName "excel"}}
+                                <i class="fa fa-5x fa-file-excel-o"></i>
+                            {{/if}}
+                            {{#if isFileWithType fileName "document"}}
+                                <i class="fa fa-5x fa-file-word-o"></i>
+                            {{/if}}
+                            {{#if isFileWithType fileName "powerPoint"}}
+                                <i class="fa fa-5x fa-file-powerpoint-o"></i>
+                            {{/if}}
+                            {{#if notKnownFileType fileName}}
+                                <i class="large material-icons">error</i>
+                            {{/if}}
+                        {{else}}
+                            <i class="large material-icons">chat</i>
+                        {{/if}}
+                    {{/if}}
+
+                    {{>fileNameWithTooltip}}
+
+                {{/if}}
+            {{/if}}
+        </div>
+        <div class="card-content">
+            <div class="card-action">
+                {{#if isDownloading}}
+                    <div class="progress">
+                        <div class="indeterminate"></div>
+                    </div>
+                {{else}}
+                        {{#if isText}}
+                            <div class="btn-icon" data-tooltip="{{_ 'edit'}}" data-tooltip-direction="s">
+                                <i class="mdi-editor-mode-edit" id="textEditButton"></i>
+                            </div>
+                        {{else}}
+                            <div class="btn-icon" data-open-dialog data-template="editDataObject" data-tooltip="{{_ 'edit'}}"
+                                 data-tooltip-direction="s" data-context="{{this}}">
+                                <i class="mdi-editor-mode-edit"></i>
+                            </div>
+                        {{/if}}
+                        {{>shareButton}}
+                        <div class="btn-icon" data-open-dialog data-template="moveDataObject" data-tooltip="{{_ 'moveObject'}}"
+                             data-tooltip-direction="s" data-context="{{this}}">
+                            <i class="mdi-file-folder-open"></i>
+                        </div>
+                        <div class="btn-icon" data-open-dialog data-template="deleteDataObject" data-tooltip="{{_ 'deleteObject'}}"
+                             data-tooltip-direction="s" data-context="{{this}}">
+                            <i class="mdi-action-delete"></i>
+                        </div>
+                    {{#if url}}
+                        <a class="btn-icon" data-action="download">
+                            <i class="mdi-file-file-download"></i>
+                        </a>
+                    {{/if}}
+                {{/if}}
+            </div>
+        </div>
+    </div>
+</template>
+
+<template name="AAAfileNameWithTooltip">
+    <span class="card-title truncate" data-position="top" data-tooltip="<span>{{fileName}}</span>">{{fileName}}</span>
+</template>

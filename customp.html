@@ -1,28 +1,18 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="1504.76">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Menlo; color: #018001}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Menlo}
-    span.s1 {color: #000000; background-color: #efefef}
-    span.s2 {color: #011480; background-color: #efefef}
-    span.s3 {color: #0432ff; background-color: #efefef}
-    span.s4 {background-color: #efefef}
-    span.s5 {color: #000000}
-    span.Apple-tab-span {white-space:pre}
-  </style>
-</head>
-<body>
-<p class="p1"><span class="s1">&lt;</span><span class="s2"><b>template </b></span><span class="s3"><b>name=</b></span><span class="s4"><b>“customptemplate”</b></span><span class="s1">&gt;</span><span class="s5"><br>
-<span class="Apple-converted-space">    </span></span><span class="s1">&lt;</span><span class="s2"><b>div</b></span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s4"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>Tremendous div!</span><br>
-<span class="Apple-converted-space">    </span><span class="s4">&lt;/</span><span class="s2"><b>div</b></span><span class="s4">&gt;</span><br>
-<span class="s4">&lt;/</span><span class="s2"><b>template</b></span><span class="s4">&gt;</span><br>
-</p>
-</body>
-</html>
+<template name="customptemplate">
+    {{#if isReady}}
+        {{> fileBrowser}}
+    {{else}}
+        <div class="preloader-wrapper big active main-loading">
+            <div class="spinner-layer spinner-blue">
+                <div class="circle-clipper left">
+                    <div class="circle"></div>
+                </div><div class="gap-patch">
+                <div class="circle"></div>
+            </div><div class="circle-clipper right">
+                <div class="circle"></div>
+            </div>
+            </div>
+        </div>
+    {{/if}}
+    {{> createDataObjectFab}}
+</template>

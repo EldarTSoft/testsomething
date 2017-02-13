@@ -1,0 +1,44 @@
+<template name="AAAcreateDataObjectFab">
+        <div class="fixed-action-btn">
+            <a class="btn-floating btn-large secondary">
+                <i class="large material-icons">add</i>
+            </a>
+
+            <ul>
+                <li>
+                    <a
+                            class="btn-floating waves-effect secondary"
+                            data-open-dialog data-template="createFolder"
+                            data-position="left"
+                            data-delay="0"
+                            data-tooltip="{{_ 'createFolder'}}"
+                            data-tooltip-direction="w">
+                        <i class="material-icons">folder</i>
+                    </a>
+                </li>
+                <li>
+                    {{#if isWhatIWantToSay}}
+                        <a
+                                class="btn-floating waves-effect secondary"
+                                data-open-dialog data-template="addText"
+                                data-position="left"
+                                data-delay="0"
+                                data-tooltip="{{_ 'createText'}}"
+                                data-tooltip-direction="w">
+                            <i class="material-icons">insert_drive_file</i>
+                        </a>
+                    {{else}}
+                        <a
+                                class="btn-floating waves-effect secondary"
+                                data-open-dialog data-template="uploadFile"
+                                data-position="left"
+                                data-delay="0"
+                                data-tooltip="{{_ 'uploadFile'}}"
+                                data-tooltip-direction="w">
+                            <i class="material-icons">insert_drive_file</i>
+                        </a>
+                    {{/if}}
+                </li>
+            </ul>
+        </div>
+</template>
